@@ -109,6 +109,7 @@ s.source       = { :git => "https://github.com/halfking/hcsharepush", :tag => s.
 
     s.dependency "HCMinizip"
     s.dependency "hccoren"
+    s.dependency "HCBaseSystem"
     s.dependency "UMengAnalytics-NO-IDFA"
     s.dependency "TuSDK"
     s.dependency 'MOBFoundation_IDFA'

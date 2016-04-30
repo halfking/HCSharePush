@@ -7,15 +7,15 @@
 //
 
 #import "TMManager.h"
-#import "CMDs_WT.h"
+#import <HCBaseSystem/UserManager.h>
+#import "HCBaseSystem/CMDs_WT.h"
+
 #import "shareConfig.h"
 #import <TuSDK/TuSDK.h>
 #import <GTSDK/GeTuiSdk.h>
 #import <HCCallResultForWT.h>
 
-#import "UserManager.h"
 #import "CMD_BindGTCID.h"
-//#import "shareConfig.h"
 #import "HCShareConfig.h"
 
 //#import "UMSocialControllerService.h"

@@ -7,7 +7,9 @@
 //
 
 #import "UMShareObject.h"
-#import "UserManager.h"
+#import <HCBaseSystem/UserManager.h>
+#import "HCBaseSystem/CMDs_WT.h"
+
 #import "WxApi.h"
 #import <CoreLocation/CoreLocation.h>
 #import <hccoren/Reachability.h>
@@ -18,7 +20,7 @@
 //#import <SMS_SDK/SMSSDK+AddressBookMethods.h>
 #import <MOBFoundation/MOBFoundation.h>
 
-#import "CMDs_WT.h"
+
 #import "CMD_LogEvent.h"
 #import "CMD_LogEvent.h"
 
