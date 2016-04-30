@@ -45,6 +45,8 @@ static HCShareConfig *intance_ = nil;
 #pragma mark - set values
 - (void)readDataFromFile:(NSString *)configFile
 {
+    if(!configFile)
+    {
     //分享
     SHAREURLROOT   =             @"mbshare.seenvoice.com"; //@"http://www.maibapp.com/share"
     SHAREURL       =             @"http://mbshare.seenvoice.com/?key=%@&t=%d&sid=%ld&mid=%ld";    //分享链接
@@ -52,7 +54,7 @@ static HCShareConfig *intance_ = nil;
     
     UmengAppkey    =             @"55e01759e0f55ad7fd000d32"; //@"5211818556240bc9ee01db2f"
     UMENGURL       =             @"http://www.umeng.com/social";
-    
+#warning 此处需要从外部控制，否则可能导致总是Release版本的信息
 #ifndef __OPTIMIZE__
     
     GT_AppID  =              @"MQO8miiWr38bHafSCJ1FI9";
@@ -95,6 +97,6 @@ static HCShareConfig *intance_ = nil;
     SMS_APPID  =             @"d81e1735dd60";
     SMS_APPSCECRET =         @"7d063a1df398e42636a255d006f64747";
     
-    
+    }
 }
 @end
