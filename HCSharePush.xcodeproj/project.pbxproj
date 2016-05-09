@@ -28,8 +28,8 @@
 		11FDE7A81CD52BD600090925 /* HCShareConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FDE7A61CD52BD600090925 /* HCShareConfig.m */; };
 		11FDE7A91CD52BD600090925 /* HCShareConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FDE7A61CD52BD600090925 /* HCShareConfig.m */; };
 		11FDE7AC1CD538CB00090925 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FDE7AB1CD538CB00090925 /* TencentOpenAPI.framework */; };
-		30C745F4BC82F5392BAB7EAF /* libPods-HCSharePushTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49653B4D4DD1D3DD059435F4 /* libPods-HCSharePushTests.a */; };
-		A00B2C41F259837E8BF28AA0 /* libPods-HCSharePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 981811D6A4A91150CBA4A8AA /* libPods-HCSharePush.a */; };
+		2E4FB6180E06A20AD915D3E4 /* libPods-HCSharePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D20AF69BC5AEC931EC172C49 /* libPods-HCSharePush.a */; };
+		72735F913A501CC99A5A1E4B /* libPods-HCSharePushTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 702CBCD3C4B89933E1BB2ABC /* libPods-HCSharePushTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B10EF5CB5EB2F8BE2DFFCE4 /* Pods-HCSharePushTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePushTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePushTests/Pods-HCSharePushTests.release.xcconfig"; sourceTree = "<group>"; };
 		11FDE76F1CD5250C00090925 /* HCSharePush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HCSharePush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11FDE7721CD5250C00090925 /* HCSharePush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCSharePush.h; sourceTree = "<group>"; };
 		11FDE7741CD5250C00090925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,11 +62,12 @@
 		11FDE7A51CD52BD600090925 /* HCShareConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCShareConfig.h; sourceTree = "<group>"; };
 		11FDE7A61CD52BD600090925 /* HCShareConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCShareConfig.m; sourceTree = "<group>"; };
 		11FDE7AB1CD538CB00090925 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
-		342CA424B72320C5B5A580A6 /* Pods-HCSharePush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePush/Pods-HCSharePush.debug.xcconfig"; sourceTree = "<group>"; };
-		49653B4D4DD1D3DD059435F4 /* libPods-HCSharePushTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HCSharePushTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DC019A2E4B80DF6CB33BE93 /* Pods-HCSharePushTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePushTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePushTests/Pods-HCSharePushTests.debug.xcconfig"; sourceTree = "<group>"; };
-		981811D6A4A91150CBA4A8AA /* libPods-HCSharePush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HCSharePush.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A621794BE822927A0744C02F /* Pods-HCSharePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePush/Pods-HCSharePush.release.xcconfig"; sourceTree = "<group>"; };
+		2B36C7283F023E5DCCD21C30 /* Pods-HCSharePush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePush/Pods-HCSharePush.debug.xcconfig"; sourceTree = "<group>"; };
+		66BF486C4DBF5FE871C28131 /* Pods-HCSharePushTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePushTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePushTests/Pods-HCSharePushTests.debug.xcconfig"; sourceTree = "<group>"; };
+		702CBCD3C4B89933E1BB2ABC /* libPods-HCSharePushTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HCSharePushTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D014AB701C4A49FFACB1564C /* Pods-HCSharePushTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePushTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePushTests/Pods-HCSharePushTests.release.xcconfig"; sourceTree = "<group>"; };
+		D20AF69BC5AEC931EC172C49 /* libPods-HCSharePush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HCSharePush.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC95F3D112821ACAF34B9856 /* Pods-HCSharePush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePush.release.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePush/Pods-HCSharePush.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00B2C41F259837E8BF28AA0 /* libPods-HCSharePush.a in Frameworks */,
 				11FDE7AC1CD538CB00090925 /* TencentOpenAPI.framework in Frameworks */,
+				2E4FB6180E06A20AD915D3E4 /* libPods-HCSharePush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11FDE77A1CD5250C00090925 /* HCSharePush.framework in Frameworks */,
-				30C745F4BC82F5392BAB7EAF /* libPods-HCSharePushTests.a in Frameworks */,
+				72735F913A501CC99A5A1E4B /* libPods-HCSharePushTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +100,8 @@
 				11FDE7711CD5250C00090925 /* HCSharePush */,
 				11FDE77D1CD5250C00090925 /* HCSharePushTests */,
 				11FDE7701CD5250C00090925 /* Products */,
-				1D50F0913D7208BCFF2A2EF0 /* Pods */,
-				82CE11AFD922A0D615E9B817 /* Frameworks */,
+				9BD165DC20B57EE0C3297EBC /* Pods */,
+				95416392DD6BBE89E5B9C05B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,24 +167,24 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
-		1D50F0913D7208BCFF2A2EF0 /* Pods */ = {
+		95416392DD6BBE89E5B9C05B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				342CA424B72320C5B5A580A6 /* Pods-HCSharePush.debug.xcconfig */,
-				A621794BE822927A0744C02F /* Pods-HCSharePush.release.xcconfig */,
-				7DC019A2E4B80DF6CB33BE93 /* Pods-HCSharePushTests.debug.xcconfig */,
-				0B10EF5CB5EB2F8BE2DFFCE4 /* Pods-HCSharePushTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		82CE11AFD922A0D615E9B817 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				981811D6A4A91150CBA4A8AA /* libPods-HCSharePush.a */,
-				49653B4D4DD1D3DD059435F4 /* libPods-HCSharePushTests.a */,
+				D20AF69BC5AEC931EC172C49 /* libPods-HCSharePush.a */,
+				702CBCD3C4B89933E1BB2ABC /* libPods-HCSharePushTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BD165DC20B57EE0C3297EBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B36C7283F023E5DCCD21C30 /* Pods-HCSharePush.debug.xcconfig */,
+				DC95F3D112821ACAF34B9856 /* Pods-HCSharePush.release.xcconfig */,
+				66BF486C4DBF5FE871C28131 /* Pods-HCSharePushTests.debug.xcconfig */,
+				D014AB701C4A49FFACB1564C /* Pods-HCSharePushTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,12 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11FDE7831CD5250C00090925 /* Build configuration list for PBXNativeTarget "HCSharePush" */;
 			buildPhases = (
-				66E353D4BC10AF40C301BEA2 /* 📦 Check Pods Manifest.lock */,
+				0D38554E6AC3308B96AA34E3 /* 📦 Check Pods Manifest.lock */,
 				11FDE76A1CD5250C00090925 /* Sources */,
 				11FDE76B1CD5250C00090925 /* Frameworks */,
 				11FDE76C1CD5250C00090925 /* Headers */,
 				11FDE76D1CD5250C00090925 /* Resources */,
-				4B02D61332A12C9B1BDCF03D /* 📦 Copy Pods Resources */,
+				1F1E958D265995342CA75CA9 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,12 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11FDE7861CD5250C00090925 /* Build configuration list for PBXNativeTarget "HCSharePushTests" */;
 			buildPhases = (
-				A7EBCC06A385E53C59F37F23 /* 📦 Check Pods Manifest.lock */,
+				2275C6002EA4B5926DA76CFC /* 📦 Check Pods Manifest.lock */,
 				11FDE7751CD5250C00090925 /* Sources */,
 				11FDE7761CD5250C00090925 /* Frameworks */,
 				11FDE7771CD5250C00090925 /* Resources */,
-				F9BF5611081399DEAD93AB88 /* 📦 Embed Pods Frameworks */,
-				AAEF8369E2025A2934738606 /* 📦 Copy Pods Resources */,
+				E8CAFCB37156D9FC88708B46 /* 📦 Embed Pods Frameworks */,
+				2F1A7E818A8A8DE1D8CE43ED /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,7 +302,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B02D61332A12C9B1BDCF03D /* 📦 Copy Pods Resources */ = {
+		0D38554E6AC3308B96AA34E3 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1F1E958D265995342CA75CA9 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,7 +332,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HCSharePush/Pods-HCSharePush-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		66E353D4BC10AF40C301BEA2 /* 📦 Check Pods Manifest.lock */ = {
+		2275C6002EA4B5926DA76CFC /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,22 +347,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A7EBCC06A385E53C59F37F23 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AAEF8369E2025A2934738606 /* 📦 Copy Pods Resources */ = {
+		2F1A7E818A8A8DE1D8CE43ED /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,7 +362,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HCSharePushTests/Pods-HCSharePushTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F9BF5611081399DEAD93AB88 /* 📦 Embed Pods Frameworks */ = {
+		E8CAFCB37156D9FC88708B46 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -508,7 +508,7 @@
 		};
 		11FDE7841CD5250C00090925 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 342CA424B72320C5B5A580A6 /* Pods-HCSharePush.debug.xcconfig */;
+			baseConfigurationReference = 2B36C7283F023E5DCCD21C30 /* Pods-HCSharePush.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -530,7 +530,7 @@
 		};
 		11FDE7851CD5250C00090925 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A621794BE822927A0744C02F /* Pods-HCSharePush.release.xcconfig */;
+			baseConfigurationReference = DC95F3D112821ACAF34B9856 /* Pods-HCSharePush.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -552,7 +552,7 @@
 		};
 		11FDE7871CD5250C00090925 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DC019A2E4B80DF6CB33BE93 /* Pods-HCSharePushTests.debug.xcconfig */;
+			baseConfigurationReference = 66BF486C4DBF5FE871C28131 /* Pods-HCSharePushTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = HCSharePushTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -563,7 +563,7 @@
 		};
 		11FDE7881CD5250C00090925 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B10EF5CB5EB2F8BE2DFFCE4 /* Pods-HCSharePushTests.release.xcconfig */;
+			baseConfigurationReference = D014AB701C4A49FFACB1564C /* Pods-HCSharePushTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = HCSharePushTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
