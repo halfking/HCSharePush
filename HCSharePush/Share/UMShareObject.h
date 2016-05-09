@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <hccoren/base.h>
-#import "PublicEnum.h"
+#import <HCBaseSystem/PublicEnum.h>
 
 typedef void (^LoginCompleted)(HCLoginType loginType,BOOL success);
 typedef void (^ShareCompleted)(BOOL success,NSString * msg);

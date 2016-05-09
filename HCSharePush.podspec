@@ -95,16 +95,15 @@ s.source       = { :git => "https://github.com/halfking/hcsharepush", :tag => s.
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-
   # s.framework  = "UIKit"
-  # s.frameworks = "UIKit", "Foundation","TencentOpenAPI"
+   s.frameworks = "UIKit", "Foundation","TencentOpenAPI"
 
   # s.library   = "iconv"
 #  s.libraries = "icucore","sqlite3.0","stdc++"
 
   # s.requires_arc = false
-
-    s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES","ENABLE_BITCODE" => "YES","DEFINES_MODULE" => "YES","HEADER_SEARCH_PATHS" => "$(inherited) $(PROJECT_DIR)/Lib","LIBRARY_SEARCH_PATHS" => "$(inherited) $(PROJECT_DIR)/Lib"}
+#此处注意，外部的Lib的引用。
+s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES","ENABLE_BITCODE" => "YES","DEFINES_MODULE" =>  "YES","HEADER_SEARCH_PATHS" => "$(inherited)  ${PODS_ROOT}/#{s.name}/Lib/**","LIBRARY_SEARCH_PATHS" => "$(inherited)  ${PODS_ROOT}/#{s.name}/Lib/**" }
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
     s.dependency "HCMinizip"
@@ -116,16 +115,22 @@ s.source       = { :git => "https://github.com/halfking/hcsharepush", :tag => s.
     s.dependency 'SMSSDK'
     s.dependency 'UMengSocial', '~> 5.0'
     s.dependency 'GTSDK', '~> 1.4.2-noidfa'
+#s.dependency 'TencentOpenAPI'
 
     s.subspec 'ShareTM' do |spec|
         spec.requires_arc            = true
         spec.source_files = [
             "HCSharePush/TM/*.{h,m,mm,cpp,c}",
-            "HCSharePush/Share/*.{h,m,mm,cpp,c}"
+            "HCSharePush/Share/*.{h,m,mm,cpp,c}",
+            "HCSharePush/HCShareConfig.{h,m}",
+            "HCSHarePush/HCShareConfig.h",
+            "HCSharePush/shareConfig.h"
         ]
         spec.public_header_files = [
             "HCSharePush/TM/*.h",
-            "HCSharePush/Share/*.h"
+            "HCSharePush/Share/*.h",
+            "HCSHarePush/HCShareConfig.h",
+            "HCSharePush/shareConfig.h"
         ]
         #spec.frameworks = []
         #spec.ios.dependency 'HCBaseSystem/User'

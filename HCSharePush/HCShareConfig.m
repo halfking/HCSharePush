@@ -27,7 +27,7 @@ static HCShareConfig *intance_ = nil;
 +(HCShareConfig *)config:(NSString *)configFile
 {
     static dispatch_once_t pred = 0;
-    static HCShareConfig *intanceVDC_ = nil;
+//    static HCShareConfig *intanceVDC_ = nil;
     dispatch_once(&pred,^
                   {
                       intance_ = [[HCShareConfig alloc] initWithFile:(NSString *)configFile];
