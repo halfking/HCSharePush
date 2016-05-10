@@ -103,18 +103,20 @@ s.source       = { :git => "https://github.com/halfking/hcsharepush", :tag => s.
 
   # s.requires_arc = false
 #此处注意，外部的Lib的引用。
-s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES","ENABLE_BITCODE" => "YES","DEFINES_MODULE" =>  "YES","HEADER_SEARCH_PATHS" => "$(inherited)  ${PODS_ROOT}/#{s.name}/Lib/**","LIBRARY_SEARCH_PATHS" => "$(inherited)  ${PODS_ROOT}/#{s.name}/Lib/**" }
+s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES","ENABLE_BITCODE" => "YES","DEFINES_MODULE" =>  "YES"}
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
     s.dependency "HCMinizip"
     s.dependency "hccoren"
     s.dependency "HCBaseSystem"
     s.dependency "UMengAnalytics-NO-IDFA"
-#s.dependency "TuSDK"
+    s.dependency "TuSDK"
     s.dependency 'MOBFoundation_IDFA'
     s.dependency 'SMSSDK'
-    s.dependency 'UMengSocial', '~> 5.0'
+    s.dependency 'UMengSocial'
     s.dependency 'GTSDK', '~> 1.4.2-noidfa'
+    s.dependency 'QQOpenSDK'
+
 #s.dependency 'TencentOpenAPI'
 
     s.subspec 'ShareTM' do |spec|

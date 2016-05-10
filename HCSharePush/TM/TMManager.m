@@ -11,7 +11,7 @@
 #import "HCBaseSystem/CMDs_WT.h"
 
 #import "shareConfig.h"
-//#import <TuSDK/TuSDK.h>
+#import <TuSDK/TuSDK.h>
 #import <GTSDK/GeTuiSdk.h>
 #import <HCCallResultForWT.h>
 
@@ -178,11 +178,11 @@ static TMManager * intance_ = nil;
 }
 
 #pragma mark - TuSDK
-//- (void)startTuSDK
-//{
-//    HCShareConfig * config = [HCShareConfig config];
-//    [TuSDK initSdkWithAppKey:config.TU_AppKey];
-//}
+- (void)startTuSDK
+{
+    HCShareConfig * config = [HCShareConfig config];
+    [TuSDK initSdkWithAppKey:config.TU_AppKey];
+}
 
 #pragma - mark parse data
 - (BOOL)didReceiveRemoteMessage:(NSDictionary *)payloadDic

@@ -27,7 +27,6 @@
 		11FDE7A71CD52BD600090925 /* HCShareConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 11FDE7A51CD52BD600090925 /* HCShareConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		11FDE7A81CD52BD600090925 /* HCShareConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FDE7A61CD52BD600090925 /* HCShareConfig.m */; };
 		11FDE7A91CD52BD600090925 /* HCShareConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FDE7A61CD52BD600090925 /* HCShareConfig.m */; };
-		11FDE7AC1CD538CB00090925 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11FDE7AB1CD538CB00090925 /* TencentOpenAPI.framework */; };
 		2E4FB6180E06A20AD915D3E4 /* libPods-HCSharePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D20AF69BC5AEC931EC172C49 /* libPods-HCSharePush.a */; };
 		72735F913A501CC99A5A1E4B /* libPods-HCSharePushTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 702CBCD3C4B89933E1BB2ABC /* libPods-HCSharePushTests.a */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,6 @@
 		11FDE7A31CD527C900090925 /* shareConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shareConfig.h; sourceTree = "<group>"; };
 		11FDE7A51CD52BD600090925 /* HCShareConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCShareConfig.h; sourceTree = "<group>"; };
 		11FDE7A61CD52BD600090925 /* HCShareConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCShareConfig.m; sourceTree = "<group>"; };
-		11FDE7AB1CD538CB00090925 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		2B36C7283F023E5DCCD21C30 /* Pods-HCSharePush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePush.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePush/Pods-HCSharePush.debug.xcconfig"; sourceTree = "<group>"; };
 		66BF486C4DBF5FE871C28131 /* Pods-HCSharePushTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCSharePushTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HCSharePushTests/Pods-HCSharePushTests.debug.xcconfig"; sourceTree = "<group>"; };
 		702CBCD3C4B89933E1BB2ABC /* libPods-HCSharePushTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HCSharePushTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11FDE7AC1CD538CB00090925 /* TencentOpenAPI.framework in Frameworks */,
 				2E4FB6180E06A20AD915D3E4 /* libPods-HCSharePush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +92,6 @@
 		11FDE7651CD5250C00090925 = {
 			isa = PBXGroup;
 			children = (
-				11FDE7AA1CD538CB00090925 /* Lib */,
 				11FDE7A11CD5267D00090925 /* HCSharePush.podspec */,
 				11FDE7711CD5250C00090925 /* HCSharePush */,
 				11FDE77D1CD5250C00090925 /* HCSharePushTests */,
@@ -157,14 +153,6 @@
 				11FDE7941CD5266A00090925 /* TMManager.m */,
 			);
 			path = TM;
-			sourceTree = "<group>";
-		};
-		11FDE7AA1CD538CB00090925 /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-				11FDE7AB1CD538CB00090925 /* TencentOpenAPI.framework */,
-			);
-			path = Lib;
 			sourceTree = "<group>";
 		};
 		95416392DD6BBE89E5B9C05B /* Frameworks */ = {
