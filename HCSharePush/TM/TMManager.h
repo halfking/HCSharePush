@@ -40,7 +40,7 @@ userinfo =     {
 +(TMManager *)shareObject;
 - (BOOL)initConfig;
 
-- (void)startTuSDK;
+//- (void)startTuSDK;
 
 - (void)startSDK;
 - (void)stopSDK;

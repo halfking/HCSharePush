@@ -9,7 +9,7 @@ target 'HCSharePush' do
     pod 'UMengSocial'
     pod 'UMengAnalytics-NO-IDFA','~>4.0.1'
     pod 'GTSDK', '~> 1.4.2-noidfa'
-    pod 'TuSDK'
+#    pod 'TuSDK'
   target 'HCSharePushTests' do
     inherit! :search_paths
     # Pods for testing
