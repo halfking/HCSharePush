@@ -14,8 +14,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <hccoren/Reachability.h>
 #import <hccoren/HWindowStack.h>
-
-#import <UMengAnalytics-NO-IDFA/MobClick.h>
+#import <UMengAnalytics-NO-IDFA/UMMobClick/MobClick.h>
 #import <SMS_SDK/SMSSDK.h>
 //#import <SMS_SDK/SMSSDK+AddressBookMethods.h>
 #import <MOBFoundation/MOBFoundation.h>
@@ -81,7 +80,12 @@ static UMShareObject * intance_ = nil;
     [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskLandscape];
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:config.UmengAppkey];
-    [MobClick startWithAppkey:config.UmengAppkey reportPolicy:BATCH   channelId:nil]; //default appstore
+    UMAnalyticsConfig * umc = [UMAnalyticsConfig new];
+    umc.appKey = config.UmengAppkey;
+    umc.ePolicy = BATCH;
+    
+     [MobClick startWithConfigure:umc];
+//    [MobClick startWithAppkey:config.UmengAppkey reportPolicy:BATCH   channelId:nil]; //default appstore
     
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
