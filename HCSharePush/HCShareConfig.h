@@ -36,6 +36,6 @@
 
 @property (nonatomic,PP_STRONG) NSString * TU_AppKey;
 + (HCShareConfig *) config;
-+ (HCShareConfig *) config:(NSString *)configFile;
-- (id)initWithFile:(NSString *)configFile;
++ (HCShareConfig *) config:(NSString *)configFile isDebug:(BOOL)isDebug;
+- (id)initWithFile:(NSString *)configFile isDebug:(BOOL)isDebug;
 @end

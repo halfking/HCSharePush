@@ -22,28 +22,32 @@ static HCShareConfig *intance_ = nil;
 +(HCShareConfig *)config
 {
     if(intance_) return intance_;
-    return [self config:nil];
+#ifndef __OPTIMIZE__
+    return [self config:nil isDebug:YES];
+#else
+    return [self config:nil isDebug:NO];
+#endif
 }
-+(HCShareConfig *)config:(NSString *)configFile
++(HCShareConfig *)config:(NSString *)configFile isDebug:(BOOL)isDebug
 {
     static dispatch_once_t pred = 0;
     //    static HCShareConfig *intanceVDC_ = nil;
     dispatch_once(&pred,^
                   {
-                      intance_ = [[HCShareConfig alloc] initWithFile:(NSString *)configFile];
+                      intance_ = [[HCShareConfig alloc] initWithFile:(NSString *)configFile isDebug:isDebug];
                   });
     return intance_;
 }
-- (id)initWithFile:(NSString *)configFile
+- (id)initWithFile:(NSString *)configFile isDebug:(BOOL)isDebug
 {
     if(self = [super init])
     {
-        [self readDataFromFile:configFile];
+        [self readDataFromFile:configFile isDebug:isDebug];
     }
     return self;
 }
 #pragma mark - set values
-- (void)readDataFromFile:(NSString *)configFile
+- (void)readDataFromFile:(NSString *)configFile isDebug:(BOOL)isDebug
 {
     if(!configFile)
     {
@@ -54,24 +58,25 @@ static HCShareConfig *intance_ = nil;
         
         UmengAppkey    =             @"55e01759e0f55ad7fd000d32"; //@"5211818556240bc9ee01db2f"
         UMENGURL       =             @"http://www.umeng.com/social";
-#warning 此处需要从外部控制，否则可能导致总是Release版本的信息
-#ifndef __OPTIMIZE__
         
-        GT_AppID  =              @"MQO8miiWr38bHafSCJ1FI9";
-        GT_AppKey  =              @"aNiUCQZGeM8VnaOylGmKb7";
-        GT_AppSecret  =          @"dYGSjWzImRAQI6w8Xe9iw";
-        GT_MasterSecret  =       @"UieBBM6Isz8znf3nrHN5C5";
-        
-        TU_AppKey    =           @"d1c70916dfa93d25-02-m7elo1"; // 测试版的key
-        
-        
-#else
-        GT_AppID     =           @"TY0nFypgIW66PXxyDyIye1";
-        GT_AppKey    =           @"esms2TuFvN9uEOZMD6zJF5";
-        GT_AppSecret =           @"chOuU7BFtd64l8LdHUXzPA";
-        GT_MasterSecret =        @"inf9JWlLwU65solT5nD498";
-        TU_AppKey    =           @"390e6ab0040eae65-02-m7elo1"; // 正式版的key
-#endif
+        if(isDebug)
+        {
+            GT_AppID  =              @"MQO8miiWr38bHafSCJ1FI9";
+            GT_AppKey  =              @"aNiUCQZGeM8VnaOylGmKb7";
+            GT_AppSecret  =          @"dYGSjWzImRAQI6w8Xe9iw";
+            GT_MasterSecret  =       @"UieBBM6Isz8znf3nrHN5C5";
+            
+            TU_AppKey    =           @"d1c70916dfa93d25-02-m7elo1"; // 测试版的key
+            
+        }
+        else
+        {
+            GT_AppID     =           @"TY0nFypgIW66PXxyDyIye1";
+            GT_AppKey    =           @"esms2TuFvN9uEOZMD6zJF5";
+            GT_AppSecret =           @"chOuU7BFtd64l8LdHUXzPA";
+            GT_MasterSecret =        @"inf9JWlLwU65solT5nD498";
+            TU_AppKey    =           @"390e6ab0040eae65-02-m7elo1"; // 正式版的key
+        }
         
         //新浪微博
         SINA_APPKEY    =             @"1848569834";
