@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HCSharePush"
-  s.version      = "0.0.8"
+  s.version      = "0.1.0"
   s.summary      = "这是一个与分享、推送的核心库。"
   s.description  = <<-DESC
 这是一个特定的核心库。包含了常用的分享、命令、推送。简化了外部引用的一些问题。
@@ -110,7 +110,7 @@ s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES",
     s.dependency "hccoren"
     s.dependency "HCBaseSystem"
     s.dependency "UMengAnalytics-NO-IDFA"
-//    s.dependency "TuSDK"
+#    s.dependency "TuSDK"
     s.dependency 'MOBFoundation_IDFA'
     s.dependency 'SMSSDK'
     s.dependency 'UMengSocial'

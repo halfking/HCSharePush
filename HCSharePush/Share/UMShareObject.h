@@ -16,7 +16,25 @@ typedef void (^ShareCompleted)(BOOL success,NSString * msg);
 +(id)Instance;
 +(UMShareObject *)shareObject;
 - (BOOL)initConfig;
-- (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType) loginType url:(NSString *)url shareTitle:(NSString *)title shareContent:(NSString *)content shareImg:(id)image imgUrlString:(NSString *)imageUrlString completed:(ShareCompleted) success ;
+
+- (BOOL)shareListVC:(UIViewController *)controller
+          loginType:(HCLoginType) loginType
+                url:(NSString *)url
+         shareTitle:(NSString *)title
+       shareContent:(NSString *)content
+           shareImg:(id)image
+       imgUrlString:(NSString *)imageUrlString
+          completed:(ShareCompleted) success ;
+
+//直接上传视频到微信或图片
+- (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType) loginType
+                url:(NSString *)url
+         shareTitle:(NSString *)title
+              video:(NSString *)videoUrl
+         smallVideo:(NSString *)smallVideo
+           shareImg:(UIImage *)image
+          completed:(ShareCompleted) success;
+
 - (void)login:(UIViewController *)controller loginType:(HCLoginType )loginType completed:(LoginCompleted)completed;
 - (BOOL)isInstalled:(HCLoginType) loginType;
 

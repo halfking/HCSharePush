@@ -41,7 +41,7 @@
 //#import "UMSocialQQHandler.h"
 
 
-@interface UMShareObject ()<UIActionSheetDelegate,UMSocialUIDelegate,UMSocialDataDelegate>
+@interface UMShareObject ()<UIActionSheetDelegate,UMSocialUIDelegate,UMSocialDataDelegate,WXApiDelegate>
 {
     ShareCompleted currentShareCompleted_;
 }
@@ -84,8 +84,8 @@ static UMShareObject * intance_ = nil;
     umc.appKey = config.UmengAppkey;
     umc.ePolicy = BATCH;
     
-     [MobClick startWithConfigure:umc];
-//    [MobClick startWithAppkey:config.UmengAppkey reportPolicy:BATCH   channelId:nil]; //default appstore
+    [MobClick startWithConfigure:umc];
+    //    [MobClick startWithAppkey:config.UmengAppkey reportPolicy:BATCH   channelId:nil]; //default appstore
     
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
@@ -141,6 +141,63 @@ static UMShareObject * intance_ = nil;
         cmd.Parameters = attributes;
         [cmd sendCMD];
     }
+}
+#pragma mark - wx delegate
+
+-(void) onReq:(BaseReq*)req
+{
+//    if([req isKindOfClass:[GetMessageFromWXReq class]])
+//    {
+//        // 微信请求App提供内容， 需要app提供内容后使用sendRsp返回
+//        NSString *strTitle = [NSString stringWithFormat:@"微信请求App提供内容"];
+//        NSString *strMsg = @"微信请求App提供内容，App要调用sendResp:GetMessageFromWXResp返回给微信";
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        alert.tag = 1000;
+//        [alert show];
+//        [alert release];
+//    }
+//    else if([req isKindOfClass:[ShowMessageFromWXReq class]])
+//    {
+//        ShowMessageFromWXReq* temp = (ShowMessageFromWXReq*)req;
+//        WXMediaMessage *msg = temp.message;
+//        
+//        //显示微信传过来的内容
+//        WXAppExtendObject *obj = msg.mediaObject;
+//        
+//        NSString *strTitle = [NSString stringWithFormat:@"微信请求App显示内容"];
+//        NSString *strMsg = [NSString stringWithFormat:@"标题：%@ \n内容：%@ \n附带信息：%@ \n缩略图:%u bytes\n\n", msg.title, msg.description, obj.extInfo, msg.thumbData.length];
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        [alert release];
+//    }
+//    else if([req isKindOfClass:[LaunchFromWXReq class]])
+//    {
+//        //从微信启动App
+//        NSString *strTitle = [NSString stringWithFormat:@"从微信启动"];
+//        NSString *strMsg = @"这是从微信启动的消息";
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        [alert release];
+//    }
+}
+
+-(void) onResp:(BaseResp*)resp
+{
+#ifndef __OPTIMIZE_
+    if([resp isKindOfClass:[SendMessageToWXResp class]])
+    {
+        NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
+        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+        NSLog(strTitle);
+        NSLog(strMsg);
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        [alert release];
+    }
+#endif
 }
 #pragma mark - share
 - (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType)loginType url:(NSString *)url shareTitle:(NSString *)title shareContent:(NSString *)content shareImg:(id)image  imgUrlString:(NSString *)imageUrlString completed:(ShareCompleted)success
@@ -296,7 +353,107 @@ static UMShareObject * intance_ = nil;
     return YES;
 }
 
-
+//直接上传视频到微信或图片
+- (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType) loginType
+                url:(NSString *)url
+         shareTitle:(NSString *)title
+              video:(NSString *)videoUrl
+         smallVideo:(NSString *)smallVideo
+           shareImg:(UIImage *)image
+          completed:(ShareCompleted) success
+{
+    HCShareConfig * config = [HCShareConfig config];
+    currentShareCompleted_ = success;
+    DeviceConfig * deviceConfig = [DeviceConfig config];
+    CLLocationCoordinate2D loc = CLLocationCoordinate2DMake(deviceConfig.AccuraceLat,deviceConfig.AccuraceLng);
+    
+    CLLocation * location = nil;
+    if(CLLocationCoordinate2DIsValid(loc))
+    {
+        location =  [[CLLocation alloc]initWithLatitude:deviceConfig.AccuraceLat longitude:deviceConfig.AccuraceLng];
+    }
+    
+    if(loginType == HCLoginTypeWeixin)
+    {
+        WXMediaMessage * message = [WXMediaMessage message];
+        message.title = title;
+        message.description = title;
+        if(image)
+        {
+            [message setThumbImage:image];
+        }
+        if(videoUrl)
+        {
+            WXVideoObject * videoObject = [WXVideoObject object];
+            videoObject.videoUrl = videoUrl;
+            videoObject.videoLowBandUrl = smallVideo;
+        }
+        SendMessageToWXReq * req = [[SendMessageToWXReq alloc]init];
+        req.bText = NO;
+        req.message = message;
+        req.scene = WXSceneSession;
+        
+        if([WXApi sendReq:req])
+        {
+            if(success)
+            {
+                success(YES,nil);
+            }
+        }
+        else
+        {
+            if(success)
+            {
+                success(NO,@"sender error");
+            }
+        }
+        
+    }
+    else if(loginType == HCLoginTypeSession)
+    {
+        WXMediaMessage * message = [WXMediaMessage message];
+        message.title = title;
+        message.description = title;
+        if(image)
+        {
+            [message setThumbImage:image];
+        }
+        if(videoUrl)
+        {
+            WXVideoObject * videoObject = [WXVideoObject object];
+            videoObject.videoUrl = videoUrl;
+            videoObject.videoLowBandUrl = smallVideo;
+        }
+        SendMessageToWXReq * req = [[SendMessageToWXReq alloc]init];
+        req.bText = NO;
+        req.message = message;
+        req.scene = WXSceneTimeline;
+        
+        if([WXApi sendReq:req])
+        {
+            if(success)
+            {
+                success(YES,nil);
+            }
+        }
+        else
+        {
+            if(success)
+            {
+                success(NO,@"sender error");
+            }
+        }
+    }
+    else if(loginType == HCLoginTypeQQ)
+    {
+        return NO;
+    }
+    else if (loginType == HCLoginTypeQZone)
+    {
+        return NO;
+    }
+    return YES;
+}
 
 -(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
 {
@@ -389,12 +546,12 @@ static UMShareObject * intance_ = nil;
                      }
                  }];
                 
-//                // 获取第三方的性别之后，在我们平台修改性别之后，以谁为主
-//                [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToQQ  completion:^(UMSocialResponseEntity *response){
-//                    NSLog(@"SnsInformation is %@",response.data);
-//                    [[UserManager sharedUserManager]setUserInfo:response.data
-//                                                         source:HCLoginTypeQQ];
-//                }];
+                //                // 获取第三方的性别之后，在我们平台修改性别之后，以谁为主
+                //                [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToQQ  completion:^(UMSocialResponseEntity *response){
+                //                    NSLog(@"SnsInformation is %@",response.data);
+                //                    [[UserManager sharedUserManager]setUserInfo:response.data
+                //                                                         source:HCLoginTypeQQ];
+                //                }];
                 
                 //                if(completed)
                 //                {
@@ -444,12 +601,12 @@ static UMShareObject * intance_ = nil;
                     
                     
                     
-//                    // 获取第三方的性别之后，在我们平台修改性别之后，以谁为主
-//                    [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToWechatSession  completion:^(UMSocialResponseEntity *response){
-//                        NSLog(@"SnsInformation is %@",response.data);
-//                        [[UserManager sharedUserManager]setUserInfo:response.data
-//                                                             source:HCLoginTypeWeixin];
-//                    }];
+                    //                    // 获取第三方的性别之后，在我们平台修改性别之后，以谁为主
+                    //                    [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToWechatSession  completion:^(UMSocialResponseEntity *response){
+                    //                        NSLog(@"SnsInformation is %@",response.data);
+                    //                        [[UserManager sharedUserManager]setUserInfo:response.data
+                    //                                                             source:HCLoginTypeWeixin];
+                    //                    }];
                 }
                 else
                 {
@@ -508,11 +665,11 @@ static UMShareObject * intance_ = nil;
                          }
                      }];
                     // 获取第三方的性别之后，在我们平台修改性别之后，以谁为主
-//                    [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
-//                        NSLog(@"SnsInformation is %@",response.data);
-//                        [[UserManager sharedUserManager]setUserInfo:response.data
-//                                                             source:HCLoginTypeSinaWeibo];
-//                    }];
+                    //                    [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
+                    //                        NSLog(@"SnsInformation is %@",response.data);
+                    //                        [[UserManager sharedUserManager]setUserInfo:response.data
+                    //                                                             source:HCLoginTypeSinaWeibo];
+                    //                    }];
                 }
                 else
                 {
@@ -632,7 +789,7 @@ static UMShareObject * intance_ = nil;
         else
         {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                 UIViewController<PageDelegate> * currentPage = [[HWindowStack shareObject]getLastVc];
+                UIViewController<PageDelegate> * currentPage = [[HWindowStack shareObject]getLastVc];
                 [[HWindowStack shareObject]openWindow:currentPage urlString:url.absoluteString
                                         shouldOpenWeb:YES
                                               animate:NO

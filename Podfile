@@ -2,8 +2,8 @@ platform :ios, '7.0'
 
 target 'HCSharePush' do
     pod 'HCMinizip'
-    pod 'hccoren','~>0.3.4'
-    pod 'HCBaseSystem','~>0.3.3'
+    pod 'hccoren','~>0.3.6'
+    pod 'HCBaseSystem','~>0.3.4'
     pod 'MOBFoundation_IDFA'
     pod 'SMSSDK'
     pod 'UMengSocial'
