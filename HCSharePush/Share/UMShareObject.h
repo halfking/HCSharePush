@@ -13,8 +13,11 @@
 typedef void (^LoginCompleted)(HCLoginType loginType,BOOL success);
 typedef void (^ShareCompleted)(BOOL success,NSString * msg);
 @interface UMShareObject : NSObject
-+(id)Instance:(BOOL)isDebug;
-+(UMShareObject *)shareObject:(BOOL)isDebug;
+
++ (id)Instance:(BOOL)isDebug;
+//使用不带参数的ShareObject前，请先用带参数的函数初始化
++ (UMShareObject *)shareObject;
++ (UMShareObject *)shareObject:(BOOL)isDebug;
 - (BOOL)initConfig:(BOOL)isDebug;
 
 - (BOOL)shareListVC:(UIViewController *)controller

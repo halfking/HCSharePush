@@ -66,6 +66,14 @@ static UMShareObject * intance_ = nil;
     }
     return intance_;
 }
++(UMShareObject *)shareObject
+{
+    if(intance_==nil)
+    {
+        NSAssert(!intance_, @"请在使用前，先用[UMShareObject shareObject:YES|NO];初始化代码");
+    }
+    return intance_;
+}
 +(UMShareObject *)shareObject:(BOOL)isDebug
 {
     return (UMShareObject *)[self Instance:isDebug];
