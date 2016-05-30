@@ -33,6 +33,7 @@ typedef void (^ShareCompleted)(BOOL success,NSString * msg);
 - (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType) loginType
                 url:(NSString *)url
          shareTitle:(NSString *)title
+       shareContent:(NSString *)content
               video:(NSString *)videoUrl
          smallVideo:(NSString *)smallVideo
            shareImg:(UIImage *)image

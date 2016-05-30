@@ -60,7 +60,7 @@
     NSString * videoUrl = @"http://media.seenvoice.com/zfvRu2z3c0_uMcdMw-HYZ-k1J2I=/FnK5BYBGQHY7aa6HgXaYdqfin0-P";
     
     
-    [shareObject shareListVC:self loginType:HCLoginTypeSession url:@"http://www.seenvoice.com/" shareTitle:@"测试分享" video:videoUrl smallVideo:videoUrl shareImg:image completed:^(BOOL success, NSString *msg) {
+    [shareObject shareListVC:self loginType:HCLoginTypeSession url:@"http://www.seenvoice.com/" shareTitle:@"测试分享" shareContent:@"test" video:videoUrl smallVideo:videoUrl shareImg:image completed:^(BOOL success, NSString *msg) {
         NSLog(@"success:%d",success);
     }];
     
@@ -72,7 +72,7 @@
     NSString * videoUrl = @"http://media.seenvoice.com/zfvRu2z3c0_uMcdMw-HYZ-k1J2I=/FnK5BYBGQHY7aa6HgXaYdqfin0-P";
     
     
-    [shareObject shareListVC:self loginType:HCLoginTypeWeixin url:@"http://www.seenvoice.com/" shareTitle:@"测试分享" video:videoUrl smallVideo:videoUrl shareImg:image completed:^(BOOL success, NSString *msg) {
+    [shareObject shareListVC:self loginType:HCLoginTypeWeixin url:@"http://www.seenvoice.com/" shareTitle:@"测试分享" shareContent:@"test"  video:videoUrl smallVideo:videoUrl shareImg:image completed:^(BOOL success, NSString *msg) {
         NSLog(@"success:%d",success);
     }];
     

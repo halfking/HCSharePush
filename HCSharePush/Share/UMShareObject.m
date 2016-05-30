@@ -367,6 +367,7 @@ static UMShareObject * intance_ = nil;
 - (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType) loginType
                 url:(NSString *)url
          shareTitle:(NSString *)title
+       shareContent:(NSString *)content
               video:(NSString *)videoUrl
          smallVideo:(NSString *)smallVideo
            shareImg:(UIImage *)image
@@ -391,7 +392,7 @@ static UMShareObject * intance_ = nil;
         
         WXMediaMessage * message = [WXMediaMessage message];
         message.title = title;
-        message.description = title;
+        message.description = content;
         if(image)
         {
             [message setThumbImage:image];
@@ -438,7 +439,7 @@ static UMShareObject * intance_ = nil;
         WXMediaMessage *message = [WXMediaMessage message];
         
         message.title = title;
-        message.description = title;
+        message.description = content;
         if(image)
         {
             [message setThumbImage:image];
