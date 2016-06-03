@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HCSharePush"
-  s.version      = "0.1.3"
+  s.version      = "0.1.4"
   s.summary      = "这是一个与分享、推送的核心库。"
   s.description  = <<-DESC
 这是一个特定的核心库。包含了常用的分享、命令、推送。简化了外部引用的一些问题。
@@ -96,10 +96,10 @@ s.source       = { :git => "https://github.com/halfking/hcsharepush", :tag => s.
   #  the lib prefix of their name.
   #
   # s.framework  = "UIKit"
-   s.frameworks = "UIKit", "Foundation","TencentOpenAPI"
+   s.frameworks = "UIKit","SystemConfiguration","Foundation","TencentOpenAPI"
 
   # s.library   = "iconv"
-#  s.libraries = "icucore","sqlite3.0","stdc++"
+#  s.libraries = "icucore","sqlite3.0","stdc++","z","sqlite3.0","c++"
 
   # s.requires_arc = false
 #此处注意，外部的Lib的引用。

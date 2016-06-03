@@ -490,6 +490,135 @@ static UMShareObject * intance_ = nil;
     }
     return YES;
 }
+//直接上传文件到微信或图片
+- (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType) loginType
+                url:(NSString *)url
+         shareTitle:(NSString *)title
+       shareContent:(NSString *)content
+              videoPath:(NSString *)videoPath
+           shareImg:(UIImage *)image
+          completed:(ShareCompleted) success
+{
+    HCShareConfig * config = [HCShareConfig config];
+    currentShareCompleted_ = success;
+    DeviceConfig * deviceConfig = [DeviceConfig config];
+    CLLocationCoordinate2D loc = CLLocationCoordinate2DMake(deviceConfig.AccuraceLat,deviceConfig.AccuraceLng);
+    
+    CLLocation * location = nil;
+    if(CLLocationCoordinate2DIsValid(loc))
+    {
+        location =  [[CLLocation alloc]initWithLatitude:deviceConfig.AccuraceLat longitude:deviceConfig.AccuraceLng];
+    }
+    
+    if(loginType == HCLoginTypeWeixin)
+    {
+        [UMSocialWechatHandler setWXAppId:config.WCHAT_APPID appSecret:config.WCHAT_APPSECKET url:url];
+        
+        [WXApi registerApp:config.WCHAT_APPID];
+        
+        
+        WXMediaMessage * message = [WXMediaMessage message];
+        message.title = title;
+        message.description = content;
+        if(image)
+        {
+            [message setThumbImage:image];
+        }
+        if(videoPath && ([[HCFileManager manager]existFileAtPath:videoPath]))
+        {
+            WXFileObject *ext = [WXFileObject object];
+            ext.fileExtension = [videoPath pathExtension];
+            ext.fileData = [NSData dataWithContentsOfFile:videoPath];
+            message.mediaObject = ext;
+        }
+        else
+        {
+            if(success)
+            {
+                success(NO,@"sender error");
+            }
+            return NO;
+        }
+        SendMessageToWXReq * req = [[SendMessageToWXReq alloc]init];
+        req.bText = NO;
+        req.message = message;
+        req.scene = WXSceneSession;
+        
+        if([WXApi sendReq:req])
+        {
+            if(success)
+            {
+                success(YES,nil);
+            }
+        }
+        else
+        {
+            if(success)
+            {
+                success(NO,@"sender error");
+            }
+        }
+        
+    }
+    else if(loginType == HCLoginTypeSession)
+    {
+        SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+        WXMediaMessage *message = [WXMediaMessage message];
+        
+        message.title = title;
+        message.description = content;
+        if(image)
+        {
+            [message setThumbImage:image];
+        }
+        
+        if(videoPath && ([[HCFileManager manager]existFileAtPath:videoPath]))
+        {
+            WXFileObject *ext = [WXFileObject object];
+            ext.fileExtension = [videoPath pathExtension];
+            ext.fileData = [NSData dataWithContentsOfFile:videoPath];
+            message.mediaObject = ext;
+        }
+        else
+        {
+            if(success)
+            {
+                success(NO,@"sender error");
+            }
+            return NO;
+        }
+
+        req.bText = NO;
+        req.message = message;
+        req.scene = WXSceneTimeline;
+        
+        if([WXApi sendReq:req])
+        {
+            if(success)
+            {
+                success(YES,nil);
+            }
+        }
+        else
+        {
+            if(success)
+            {
+                success(NO,@"sender error");
+            }
+        }
+        
+    }
+    else if(loginType == HCLoginTypeQQ)
+    {
+        return NO;
+    }
+    else if (loginType == HCLoginTypeQZone)
+    {
+        return NO;
+    }
+    return YES;
+}
+
 
 -(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
 {

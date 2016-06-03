@@ -20,6 +20,7 @@ typedef void (^ShareCompleted)(BOOL success,NSString * msg);
 + (UMShareObject *)shareObject:(BOOL)isDebug;
 - (BOOL)initConfig:(BOOL)isDebug;
 
+//常用网页分享
 - (BOOL)shareListVC:(UIViewController *)controller
           loginType:(HCLoginType) loginType
                 url:(NSString *)url
@@ -29,13 +30,22 @@ typedef void (^ShareCompleted)(BOOL success,NSString * msg);
        imgUrlString:(NSString *)imageUrlString
           completed:(ShareCompleted) success ;
 
-//直接上传视频到微信或图片
+//直接发送视频到微信或图片，结果还是Url
 - (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType) loginType
                 url:(NSString *)url
          shareTitle:(NSString *)title
        shareContent:(NSString *)content
               video:(NSString *)videoUrl
          smallVideo:(NSString *)smallVideo
+           shareImg:(UIImage *)image
+          completed:(ShareCompleted) success;
+
+//直接发送文件到微信
+- (BOOL)shareListVC:(UIViewController *)controller loginType:(HCLoginType) loginType
+                url:(NSString *)url
+         shareTitle:(NSString *)title
+       shareContent:(NSString *)content
+          videoPath:(NSString *)videoPath
            shareImg:(UIImage *)image
           completed:(ShareCompleted) success;
 
