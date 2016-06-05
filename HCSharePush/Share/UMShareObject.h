@@ -12,6 +12,9 @@
 
 typedef void (^LoginCompleted)(HCLoginType loginType,BOOL success);
 typedef void (^ShareCompleted)(BOOL success,NSString * msg);
+
+@class HCShareConfig;
+
 @interface UMShareObject : NSObject
 
 + (id)Instance:(BOOL)isDebug;
@@ -19,7 +22,8 @@ typedef void (^ShareCompleted)(BOOL success,NSString * msg);
 + (UMShareObject *)shareObject;
 + (UMShareObject *)shareObject:(BOOL)isDebug;
 - (BOOL)initConfig:(BOOL)isDebug;
-
+- (BOOL)reloadConfig;
+- (BOOL)reloadConfig:(HCShareConfig *)config;
 //常用网页分享
 - (BOOL)shareListVC:(UIViewController *)controller
           loginType:(HCLoginType) loginType

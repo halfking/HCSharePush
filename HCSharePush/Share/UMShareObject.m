@@ -80,9 +80,18 @@ static UMShareObject * intance_ = nil;
 }
 - (BOOL)initConfig:(BOOL)isDebug
 {
+    
+    HCShareConfig * config = [HCShareConfig config:nil isDebug:isDebug];
+    return [self reloadConfig:config];
+}
+- (BOOL)reloadConfig
+{
+    return [self reloadConfig:[HCShareConfig config]];
+}
+- (BOOL)reloadConfig:(HCShareConfig *)config
+{
     //打开调试log的开关
     [UMSocialData openLog:YES];
-    HCShareConfig * config = [HCShareConfig config:nil isDebug:isDebug];
     //    如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
     //    [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
     [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskLandscape];
@@ -118,7 +127,6 @@ static UMShareObject * intance_ = nil;
     [MobClick setLogEnabled:YES];
 #endif
     return YES;
-    
 }
 #pragma mark - Umeng events
 - (void)beginLogPageView:(NSString *)pageName
