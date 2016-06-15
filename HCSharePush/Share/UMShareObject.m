@@ -143,22 +143,22 @@ static UMShareObject * intance_ = nil;
 }
 - (void)event:(NSString *)eventId attributes:(NSDictionary *)attributes
 {
-    if([Reachability networkAvailable])
-    {
-        [MobClick event:eventId attributes:attributes];
-    }
+    //    if([Reachability networkAvailable])
+    //    {
+    [MobClick event:eventId attributes:attributes];
+    //    }
 }
 - (void)event:(NSString *)eventId type:(NSString *)type attributes:(NSDictionary *)attributes
 {
-    if([Reachability networkAvailable])
-    {
-        [MobClick event:[NSString stringWithFormat:@"%@_%@",eventId,type] attributes:attributes];
-        
-        CMD_CREATEN(cmd, LogEvent);
-        cmd.OpType = type;
-        cmd.Parameters = attributes;
-        [cmd sendCMD];
-    }
+    [MobClick event:[NSString stringWithFormat:@"%@_%@",eventId,type] attributes:attributes];
+    
+//    if([[DeviceConfig config].networkStatus != ReachableNone])
+//    {
+//        CMD_CREATEN(cmd, LogEvent);
+//        cmd.OpType = type;
+//        cmd.Parameters = attributes;
+//        [cmd sendCMD];
+//    }
 }
 #pragma mark - wx delegate
 
@@ -503,7 +503,7 @@ static UMShareObject * intance_ = nil;
                 url:(NSString *)url
          shareTitle:(NSString *)title
        shareContent:(NSString *)content
-              videoPath:(NSString *)videoPath
+          videoPath:(NSString *)videoPath
            shareImg:(UIImage *)image
           completed:(ShareCompleted) success
 {
@@ -595,7 +595,7 @@ static UMShareObject * intance_ = nil;
             }
             return NO;
         }
-
+        
         req.bText = NO;
         req.message = message;
         req.scene = WXSceneTimeline;
