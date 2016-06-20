@@ -41,7 +41,7 @@
         [dic setObject:[Parameters JSONRepresentationEx] forKey:@"attrs"];
     }
     [dic setObject:[NSNumber numberWithLong:[self userID]] forKey:@"userid"];
-    [dic setObject:[CommonUtil stringFromDate:[NSDate date] andFormat:@"yyyy-MM-dd HH:mm:ss"] forKey:@"userid"];
+    [dic setObject:[CommonUtil stringFromDate:[NSDate date] andFormat:@"yyyy-MM-dd HH:mm:ss"] forKey:@"date"];
     
     if(args_) PP_RELEASE(args_);
     args_ = PP_RETAIN([dic JSONRepresentationEx]);
