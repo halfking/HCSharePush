@@ -15,24 +15,24 @@
 @property (nonatomic,PP_STRONG) NSString * GT_AppSecret;
 @property (nonatomic,PP_STRONG) NSString * GT_MasterSecret;
 
-@property (nonatomic,PP_STRONG) NSString * SHAREURLROOT;
-@property (nonatomic,PP_STRONG) NSString * SHAREURL;
-@property (nonatomic,PP_STRONG) NSString * SHAREURL_USER;
+@property (nonatomic,PP_STRONG) NSString * ShareUrlRoot;
+@property (nonatomic,PP_STRONG) NSString * ShareUrl;
+@property (nonatomic,PP_STRONG) NSString * ShareUrl_User;
 @property (nonatomic,PP_STRONG) NSString * UmengAppkey;
-@property (nonatomic,PP_STRONG) NSString * UMENGURL;
+@property (nonatomic,PP_STRONG) NSString * UmengUrl;
 
-@property (nonatomic,PP_STRONG) NSString * SINA_APPKEY;
-@property (nonatomic,PP_STRONG) NSString * SINA_APPSECKET;
-@property (nonatomic,PP_STRONG) NSString * SINA_REDIRECTURL;
-@property (nonatomic,PP_STRONG) NSString * Tencent_APPKEY;
-@property (nonatomic,PP_STRONG) NSString * Tencent_APPSECKET;
-@property (nonatomic,PP_STRONG) NSString * WCHAT_APPID;
-@property (nonatomic,PP_STRONG) NSString * WCHAT_APPSECKET;
-@property (nonatomic,PP_STRONG) NSString * QQ_APPID;
-@property (nonatomic,PP_STRONG) NSString * QQ_APPSECKET;
+@property (nonatomic,PP_STRONG) NSString * Sina_AppKey;
+@property (nonatomic,PP_STRONG) NSString * Sina_AppSecurt;
+@property (nonatomic,PP_STRONG) NSString * Sina_RedirectUrl;
+@property (nonatomic,PP_STRONG) NSString * Tencent_APPKey;
+@property (nonatomic,PP_STRONG) NSString * Tencent_APPScecret;
+@property (nonatomic,PP_STRONG) NSString * WChat_AppID;
+@property (nonatomic,PP_STRONG) NSString * WChat_AppScecret;
+@property (nonatomic,PP_STRONG) NSString * QQ_AppID;
+@property (nonatomic,PP_STRONG) NSString * QQ_AppScecret;
 
-@property (nonatomic,PP_STRONG) NSString * SMS_APPID;
-@property (nonatomic,PP_STRONG) NSString * SMS_APPSCECRET;
+@property (nonatomic,PP_STRONG) NSString * SMS_AppID;
+@property (nonatomic,PP_STRONG) NSString * SMS_AppScecret;
 
 @property (nonatomic,PP_STRONG) NSString * TU_AppKey;
 + (HCShareConfig *) config;

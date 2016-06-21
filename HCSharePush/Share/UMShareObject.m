@@ -109,14 +109,14 @@ static UMShareObject * intance_ = nil;
     
     //    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ,UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline]];
     
-    [UMSocialQQHandler setQQWithAppId:config.QQ_APPID appKey:config.QQ_APPSECKET url:config.SHAREURLROOT];
-    [UMSocialWechatHandler setWXAppId:config.WCHAT_APPID appSecret:config.WCHAT_APPSECKET url:config.SHAREURLROOT];
-    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:config.SINA_REDIRECTURL];
+    [UMSocialQQHandler setQQWithAppId:config.QQ_AppID appKey:config.QQ_AppScecret url:config.ShareUrlRoot];
+    [UMSocialWechatHandler setWXAppId:config.WChat_AppID appSecret:config.WChat_AppScecret url:config.ShareUrlRoot];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:config.Sina_RedirectUrl];
     
     
-    [SMSSDK registerApp:config.SMS_APPID withSecret:config.SMS_APPSCECRET];
+    [SMSSDK registerApp:config.SMS_AppID withSecret:config.SMS_AppScecret];
     
-    [WXApi registerApp:config.WCHAT_APPID];
+    [WXApi registerApp:config.WChat_AppID];
     
     //    [[MOBFDataService sharedInstance] setCacheData:[[alertView textFieldAtIndex:0] text] forKey:@"appKey" domain:nil];
     //    [[MOBFDataService sharedInstance] setCacheData:[[alertView textFieldAtIndex:1] text] forKey:@"appSecret" domain:nil];
@@ -228,7 +228,7 @@ static UMShareObject * intance_ = nil;
     }
     else //此时，URL可能是Key
     {
-        url = [NSString stringWithFormat:config.SHAREURL,url,(int)loginType,(long)0,(long)0];
+        url = [NSString stringWithFormat:config.ShareUrl,url,(int)loginType,(long)0,(long)0];
     }
     
     //    //[UMSocialConfig setFinishToastIsHidden:NO ];  关闭返回信息》》》分享成功
@@ -253,7 +253,7 @@ static UMShareObject * intance_ = nil;
     if(loginType == HCLoginTypeWeixin)
     {
         //设置微信AppId，设置分享url，默认使用友盟的网址
-        [UMSocialWechatHandler setWXAppId:config.WCHAT_APPID appSecret:config.WCHAT_APPSECKET url:url];
+        [UMSocialWechatHandler setWXAppId:config.WChat_AppID appSecret:config.WChat_AppScecret url:url];
         {
             //        [UMSocialData defaultData].extConfig.title = @"朋友圈分享内容";  //只显示分享标题
             //        //设置微信好友或者朋友圈的分享url,下面是微信好友，微信朋友圈对应wechatTimelineData
@@ -274,7 +274,7 @@ static UMShareObject * intance_ = nil;
     }
     else if(loginType == HCLoginTypeSession)
     {
-        [UMSocialWechatHandler setWXAppId:config.WCHAT_APPID appSecret:config.WCHAT_APPSECKET url:url];
+        [UMSocialWechatHandler setWXAppId:config.WChat_AppID appSecret:config.WChat_AppScecret url:url];
         [UMSocialData defaultData].extConfig.wechatTimelineData.title = title;//朋友圈
         [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatTimeline]
                                                             content:content
@@ -299,7 +299,7 @@ static UMShareObject * intance_ = nil;
         //    //打开人人网SSO开关
         //    [UMSocialRenrenHandler openSSO];
         
-        [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:config.SINA_REDIRECTURL];
+        [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:config.Sina_RedirectUrl];
         NSString *text = [NSString stringWithFormat:@"%@\n%@",title,content];
         [[UMSocialControllerService defaultControllerService] setShareText:text shareImage:image socialUIDelegate:self]; //设置分享内容和回调对象
         
@@ -320,7 +320,7 @@ static UMShareObject * intance_ = nil;
     else if(loginType == HCLoginTypeQQ)
     {
         //设置分享到QQ空间的应用Id，和分享url 链接
-        [UMSocialQQHandler setQQWithAppId:config.QQ_APPID appKey:config.QQ_APPSECKET url:url];
+        [UMSocialQQHandler setQQWithAppId:config.QQ_AppID appKey:config.QQ_AppScecret url:url];
         
         if ([content isEqualToString:@""]) {
             content = [content stringByAppendingString:@" "];
@@ -343,7 +343,7 @@ static UMShareObject * intance_ = nil;
     {
         //通过QQ空间分享。
         //设置分享到QQ空间的应用Id，和分享url 链接
-        [UMSocialQQHandler setQQWithAppId:config.QQ_APPID appKey:config.QQ_APPSECKET url:url];
+        [UMSocialQQHandler setQQWithAppId:config.QQ_AppID appKey:config.QQ_AppScecret url:url];
         
         //设置支持没有客户端情况下使用SSO授权
         [UMSocialQQHandler setSupportWebView:YES];
@@ -394,9 +394,9 @@ static UMShareObject * intance_ = nil;
     
     if(loginType == HCLoginTypeWeixin)
     {
-        [UMSocialWechatHandler setWXAppId:config.WCHAT_APPID appSecret:config.WCHAT_APPSECKET url:url];
+        [UMSocialWechatHandler setWXAppId:config.WChat_AppID appSecret:config.WChat_AppScecret url:url];
         
-        [WXApi registerApp:config.WCHAT_APPID];
+        [WXApi registerApp:config.WChat_AppID];
         
         WXMediaMessage * message = [WXMediaMessage message];
         message.title = title;
@@ -520,9 +520,9 @@ static UMShareObject * intance_ = nil;
     
     if(loginType == HCLoginTypeWeixin)
     {
-        [UMSocialWechatHandler setWXAppId:config.WCHAT_APPID appSecret:config.WCHAT_APPSECKET url:url];
+        [UMSocialWechatHandler setWXAppId:config.WChat_AppID appSecret:config.WChat_AppScecret url:url];
         
-        [WXApi registerApp:config.WCHAT_APPID];
+        [WXApi registerApp:config.WChat_AppID];
         
         
         WXMediaMessage * message = [WXMediaMessage message];

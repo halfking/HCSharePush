@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "HCSharePush"
-  s.version      = "0.1.8"
+  s.version      = "0.1.9"
   s.summary      = "这是一个与分享、推送的核心库。"
   s.description  = <<-DESC
 这是一个特定的核心库。包含了常用的分享、命令、推送。简化了外部引用的一些问题。

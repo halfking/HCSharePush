@@ -10,11 +10,11 @@
 
 @implementation HCShareConfig
 @synthesize GT_AppID,GT_AppKey,GT_AppSecret,GT_MasterSecret;
-@synthesize SHAREURLROOT,SHAREURL,SHAREURL_USER;
-@synthesize UmengAppkey,UMENGURL;
-@synthesize SINA_APPKEY,SINA_APPSECKET,SINA_REDIRECTURL;
-@synthesize Tencent_APPKEY,Tencent_APPSECKET,WCHAT_APPID,WCHAT_APPSECKET,QQ_APPID,QQ_APPSECKET;
-@synthesize SMS_APPID,SMS_APPSCECRET;
+@synthesize ShareUrlRoot,ShareUrl,ShareUrl_User;
+@synthesize UmengAppkey,UmengUrl;
+@synthesize Sina_AppKey,Sina_AppSecurt,Sina_RedirectUrl;
+@synthesize Tencent_APPKey,Tencent_APPScecret,WChat_AppID,WChat_AppScecret,QQ_AppID,QQ_AppScecret;
+@synthesize SMS_AppID,SMS_AppScecret;
 @synthesize TU_AppKey;
 
 static HCShareConfig *intance_ = nil;
@@ -52,12 +52,12 @@ static HCShareConfig *intance_ = nil;
     if(!configFile)
     {
         //分享
-        SHAREURLROOT   =             @"mbshare.seenvoice.com"; //@"http://www.maibapp.com/share"
-        SHAREURL       =             @"http://mbshare.seenvoice.com/?key=%@&t=%d&sid=%ld&mid=%ld";    //分享链接
-        SHAREURL_USER  =             @"http://mbshare.seenvoice.com/user?id=%ld";
+        ShareUrlRoot   =             @"mbshare.seenvoice.com"; //@"http://www.maibapp.com/share"
+        ShareUrl       =             @"http://mbshare.seenvoice.com/?key=%@&t=%d&sid=%ld&mid=%ld";    //分享链接
+        ShareUrl_User  =             @"http://mbshare.seenvoice.com/user?id=%ld";
         
         UmengAppkey    =             @"55e01759e0f55ad7fd000d32"; //@"5211818556240bc9ee01db2f"
-        UMENGURL       =             @"http://www.umeng.com/social";
+        UmengUrl       =             @"http://www.umeng.com/social";
         
         if(isDebug)
         {
@@ -79,19 +79,19 @@ static HCShareConfig *intance_ = nil;
         }
         
         //新浪微博
-        SINA_APPKEY    =             @"1848569834";
-        SINA_APPSECKET   =           @"ae49a36c3bf4965e87035a9401fd441f";
-        SINA_REDIRECTURL =           @"http://sns.whalecloud.com/sina2/callback";
+        Sina_AppKey    =             @"1848569834";
+        Sina_AppSecurt   =           @"ae49a36c3bf4965e87035a9401fd441f";
+        Sina_RedirectUrl =           @"http://sns.whalecloud.com/sina2/callback";
         //腾讯微博
-        Tencent_APPKEY  =            @"801508101";
-        Tencent_APPSECKET=           @"12452a82cc06164cfb8e57d15ec544e5";
+        Tencent_APPKey  =            @"801508101";
+        Tencent_APPScecret=           @"12452a82cc06164cfb8e57d15ec544e5";
         //微信
-        WCHAT_APPID     =           @"wx36d7396f30d1e01a";
-        WCHAT_APPSECKET =           @"2200e75142c303d2bb291d60a8184d96";
+        WChat_AppID     =           @"wx36d7396f30d1e01a";
+        WChat_AppScecret =           @"2200e75142c303d2bb291d60a8184d96";
         
         //qq
-        QQ_APPID    =             @"1104834406";
-        QQ_APPSECKET =            @"wYvlH3WIujT8GvGG";
+        QQ_AppID    =             @"1104834406";
+        QQ_AppScecret =            @"wYvlH3WIujT8GvGG";
         
         //短信
         
@@ -99,8 +99,8 @@ static HCShareConfig *intance_ = nil;
         //#define SMS_APPSCECRET          @"c455542580c3e38cbbc3ccbc5f3468bb"
         
         //2.0版
-        SMS_APPID  =             @"d81e1735dd60";
-        SMS_APPSCECRET =         @"7d063a1df398e42636a255d006f64747";
+        SMS_AppID  =             @"d81e1735dd60";
+        SMS_AppScecret =         @"7d063a1df398e42636a255d006f64747";
         
     }
     else
