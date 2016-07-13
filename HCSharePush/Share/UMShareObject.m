@@ -706,8 +706,14 @@ static UMShareObject * intance_ = nil;
                 NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
                 
                 
+                NSString * usid = snsAccount.usid;
+                if(usid==NULL||usid.length==0)
+                {
+                    usid = snsAccount.openId;
+                }
+                
                 [[UserManager sharedUserManager]userLogin:snsAccount.userName
-                                                   userid:snsAccount.usid
+                                                   userid:usid
                                                      icon:snsAccount.iconURL
                                              accessTocken:snsAccount.accessToken
                                                    source:HCLoginTypeQQ
@@ -755,12 +761,16 @@ static UMShareObject * intance_ = nil;
                 UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToWechatSession];
                 
                 NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-                
-                if(snsAccount.usid && snsAccount.usid.length>0)
+                NSString * usid = snsAccount.usid;
+                if(usid==NULL||usid.length==0)
+                {
+                    usid = snsAccount.openId;
+                }
+                if(usid && usid.length>0)
                 {
                     
                     [[UserManager sharedUserManager]userLogin:snsAccount.userName
-                                                       userid:snsAccount.usid
+                                                       userid:usid
                                                          icon:snsAccount.iconURL
                                                  accessTocken:snsAccount.accessToken
                                                        source:HCLoginTypeWeixin
@@ -821,12 +831,18 @@ static UMShareObject * intance_ = nil;
                 
                 NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
                 
-                if(snsAccount.usid && snsAccount.usid.length>0)
+                NSString * usid = snsAccount.usid;
+                if(usid==NULL||usid.length==0)
+                {
+                    usid = snsAccount.openId;
+                }
+
+                if(usid && usid.length>0)
                 {
                     
                     
                     [[UserManager sharedUserManager]userLogin:snsAccount.userName
-                                                       userid:snsAccount.usid
+                                                       userid:usid
                                                          icon:snsAccount.iconURL
                                                  accessTocken:snsAccount.accessToken
                                                        source:HCLoginTypeSinaWeibo
